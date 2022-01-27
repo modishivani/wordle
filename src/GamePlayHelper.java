@@ -35,6 +35,9 @@ public class GamePlayHelper {
 
             System.out.println("Here are your possible guesses:");
             generateGuesses(guessArr, resultsArr);
+
+            System.out.println();
+            System.out.println();
         }
         sc.close();
     }
