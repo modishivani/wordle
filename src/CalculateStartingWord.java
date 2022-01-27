@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class CalculateStartingWord {
-
+//teest
     public static void main(String[] args) throws FileNotFoundException {
 
         HashMap<Character, Integer> sorted = sortByFreq(buildFreqMap());
