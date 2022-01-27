@@ -52,10 +52,18 @@ public class GamePlayHelper {
         // gather green letters
         TreeMap<Character, Integer> greens = new TreeMap<>();
         for (int i = 0; i < results.length; i++) {
-            if (results[i] == 'G') {
+            if (results[i] == 'G' || results[i] == 'g') {
                 greens.put(guesses[i], i);
             }
         }
+
+        TreeMap<Character, Integer> yellows = new TreeMap<>();
+        for (int i = 0; i < results.length; i++) {
+            if (results[i] == 'Y' || results[i] == 'y') {
+                yellows.put(guesses[i], i);
+            }
+        }
+
 
         ArrayList<String> allWords = new ArrayList<>();
         Scanner sc = new Scanner(new File("words/guesses.txt"));
@@ -66,7 +74,7 @@ public class GamePlayHelper {
 
         ArrayList<String> validGuesses = new ArrayList<>();
         for (String w: allWords) {
-            if (checkValid(greens, w)) {
+            if (checkValid(greens, yellows, w)) {
                 validGuesses.add(w);
             }
         }
@@ -74,12 +82,21 @@ public class GamePlayHelper {
         return validGuesses;
     }
 
-    private static boolean checkValid(Map<Character, Integer> greens, String w) {
+    private static boolean checkValid(Map<Character, Integer> greens, Map<Character, Integer> yellows, String w) {
         for (Character c: greens.keySet()) {
             if (w.charAt(greens.get(c)) != c) {
                 return false;
             }
         }
+
+        for (Character y: yellows.keySet()) {
+
+            //not valid if the yellow letter is not there or if the yellow letter is at the same place as previously
+            if (w.indexOf(y) == -1 || w.indexOf(y) == yellows.get(y)) { //index of will return -1 if the character is not found
+                return false;
+            }
+        }
+
         return true;
     }
 }
