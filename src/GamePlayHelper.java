@@ -14,6 +14,8 @@ public class GamePlayHelper {
         int attempts = 0;
         Scanner sc = new Scanner(System.in);
         while (attempts != 6) {
+            attempts++;
+            System.out.println("Attempt number " + attempts);
             System.out.println("Enter your guess:");
             String guess = sc.next();
             char[] guessArr = guess.toCharArray();
@@ -23,6 +25,7 @@ public class GamePlayHelper {
             }
 
             System.out.println("Enter the results (G for green, Y for yellow, - for none)");
+            System.out.println("Ex: GYY-G");
             String results = sc.next();
             char[] resultsArr = guess.toCharArray();
 
@@ -31,8 +34,17 @@ public class GamePlayHelper {
             }
 
             System.out.println("Here are your possible guesses:");
-            attempts++;
+            generateGuesses(guessArr, resultsArr);
         }
         sc.close();
+    }
+
+    private static void generateGuesses(char[] guesses, char[] results) {
+        // gather green letters
+        for (char result : results) {
+            if (result == 'G') {
+                
+            }
+        }
     }
 }
