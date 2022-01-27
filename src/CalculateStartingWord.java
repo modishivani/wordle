@@ -16,6 +16,7 @@ public class CalculateStartingWord {
             firstWord[i] = (char) itr.next();
         }
 
+        System.out.println("Optimal starting words:");
         System.out.println(guessGivenLetters(firstWord));
     }
 
