@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.sound.sampled.SourceDataLine;
@@ -44,9 +45,10 @@ public class GamePlayHelper {
 
     private static void generateGuesses(char[] guesses, char[] results) {
         // gather green letters
+        ArrayList<Character> greens = new ArrayList<>();
         for (char result : results) {
             if (result == 'G') {
-                
+                greens.add(result);
             }
         }
     }
