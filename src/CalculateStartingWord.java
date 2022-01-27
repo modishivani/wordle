@@ -60,7 +60,7 @@ public class CalculateStartingWord {
             allWords.add(sc.next());
         }
 
-        Iterator itr = allGuesses.iterator();
+        Iterator<String> itr = allGuesses.iterator();
         while (itr.hasNext()) {
             if(!allWords.contains(itr.next())) {
                 itr.remove();
