@@ -19,6 +19,7 @@ public class GamePlayHelper {
             System.out.println("Attempt number " + attempts);
             System.out.println("Enter your guess:");
             String guess = sc.next();
+            guess.toLowerCase();
             char[] guessArr = guess.toCharArray();
 
             if (guess.equalsIgnoreCase("quit")) {
