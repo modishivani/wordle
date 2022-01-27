@@ -46,9 +46,9 @@ public class GamePlayHelper {
     private static void generateGuesses(char[] guesses, char[] results) {
         // gather green letters
         ArrayList<Character> greens = new ArrayList<>();
-        for (char result : results) {
-            if (result == 'G') {
-                greens.add(result);
+        for (int i = 0; i < results.length; i++) {
+            if (results[i] == 'G') {
+                greens.add(guesses[i]);
             }
         }
     }
