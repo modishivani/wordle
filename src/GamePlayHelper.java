@@ -33,5 +33,6 @@ public class GamePlayHelper {
             System.out.println("Here are your possible guesses:");
             attempts++;
         }
+        sc.close();
     }
 }
